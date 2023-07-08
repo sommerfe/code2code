@@ -1,10 +1,19 @@
+import { Language } from './language'
+
 export interface LanguageFunction {
+    id: string
     name: string
     description: string
     version?: string
-    examples: Example[]
+    language: Language
+    examples: LanguageFunction.Example[]
 }
 
-export interface Example {
-    code: string
+export namespace LanguageFunction {
+    export interface Example {
+        id: string
+        code: string
+        comment: string
+    }
 }
+

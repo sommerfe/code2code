@@ -1,3 +1,4 @@
+import CodeSnippet from "@/app/code-snippet"
 
 const notes = [
   {id: 1, title: 'a'},
@@ -8,7 +9,6 @@ const notes = [
 
 const noteMap = new Map(notes.map((obj) => [obj.id, obj]))
 
-
 async function getNote (id: number): Promise<any> {
 
     // console.log('id', id, noteMap.get(id))
@@ -17,11 +17,11 @@ async function getNote (id: number): Promise<any> {
 }
 
 
-
 export default async function NotePage({params}: any) {
     const note = await getNote(parseInt(params.id))
     return (
         <div>
+            <CodeSnippet language={'javascript'} code={'const test = 123'}/>
             <p>{note.id}</p>
             <p>{note.title}</p>
         </div>
